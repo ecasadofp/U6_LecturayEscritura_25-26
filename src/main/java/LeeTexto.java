@@ -25,23 +25,24 @@ public class LeeTexto {
             fr = new FileReader(rutaFichero);
 
             leido = fr.read();
-            while (leido != -1){
+            while (leido != -1) {
 
-                salida += (char)leido;
+                salida += (char) leido;
                 leido = fr.read();
             }
 
         } catch (FileNotFoundException e) {
             salida = "No se ha podido abrir el fichero";
-        }catch(IOException e){
+        } catch (IOException e) {
             salida = "No se ha podido leer el fichero";
-        }finally {
+        } finally {
             try {
                 if (fr != null) {
                     fr.close();
                 }
-            } catch(IOException e){
-                System.out.println("No se ha podido cerrar el reader");;
+            } catch (IOException e) {
+                System.out.println("No se ha podido cerrar el reader");
+                ;
             }
 
         }
@@ -50,50 +51,51 @@ public class LeeTexto {
 
     }
 
-    public static String leeFicheroConRecursos(String fichero){
+    public static String leeFicheroConRecursos(String fichero) {
 
         String salida = "";
 
-        try(FileReader fr = new FileReader(fichero)){
+        try (FileReader fr = new FileReader(fichero)) {
 
             int leido = fr.read();
-            while (leido != -1){
+            while (leido != -1) {
 
-                salida += (char)leido;
+                salida += (char) leido;
                 leido = fr.read();
             }
 
         } catch (FileNotFoundException e) {
             salida = "No se ha podido abrir el fichero";
-        }catch(IOException e){
+        } catch (IOException e) {
             salida = "No se ha podido leer el fichero";
         }
 
         return salida;
     }
 
-    public static String leeConBuffer(String fichero){
+    public static String leeConBuffer(String fichero) {
 
         String salida;
-        try(BufferedReader br = new BufferedReader(new FileReader(fichero))){
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
 
             salida = "";
             String leido = br.readLine();
-            while(leido != null){
+            while (leido != null) {
                 salida += leido + "\n";
-            leido = br.readLine();}
+                leido = br.readLine();
+            }
         } catch (FileNotFoundException e) {
             salida = "No se ha podido abrir el fichero";
-        }catch(IOException e){
+        } catch (IOException e) {
             salida = "No se ha podido leer el fichero";
         }
         return salida;
 
     }
 
-    public static void escribeFichero(String fichero, String texto){
+    public static void escribeFichero(String fichero, String texto) {
 
-        try(FileWriter fw = new FileWriter(fichero)){
+        try (FileWriter fw = new FileWriter(fichero)) {
 
             fw.write(texto);
             fw.flush();
