@@ -4,15 +4,20 @@ public class LeeTexto {
 
     public static void main(String[] args) {
 
-        System.out.println(leeFicheroTradicionalmente("/home/ecasado/texto.txt"));
+//        System.out.println(leeFicheroTradicionalmente("/home/ecasado/texto.txt"));
+//
+//        System.out.println(leeFicheroConRecursos("/home/ecasado/texto2.txt"));
+//
+//        String texto = "Con cien cañones por banda\nviento en popa a toda vela\nno corta el mar sino vuela\n...";
+//
+//        escribeFichero("/home/ecasado/poesia.txt", texto);
 
-        System.out.println(leeFicheroConRecursos("/home/ecasado/texto2.txt"));
+        // "/home/ecasado/poesia.txt"
+if(args.length > 0)
+        System.out.println(leeConBuffer(args[0]));
+else
+    System.out.println("Introduce el nombre del fichero en la ejecución para ver su contenido");
 
-        String texto = "Con cien cañones por banda\nviento en popa a toda vela\nno corta el mar sino vuela\n...";
-
-        escribeFichero("/home/ecasado/poesia.txt", texto);
-
-        System.out.println(leeConBuffer("/home/ecasado/poesia.txt"));
     }
 
     public static String leeFicheroTradicionalmente(String rutaFichero) {
